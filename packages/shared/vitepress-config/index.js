@@ -13,6 +13,7 @@ export const baseConfig = {
   lang: 'ja-JP',
   lastUpdated: true,
   cleanUrls: true,
+  base: '/docs/', // GitHub Pagesのベースパス
   
   // テーマ設定
   themeConfig: {

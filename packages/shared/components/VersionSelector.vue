@@ -32,10 +32,15 @@ export default {
       return '/v1/' // デフォルトバージョン
     },
     
+    getBasePath() {
+      return this.$site?.base || '/'
+    },
+    
     switchVersion() {
       const currentPath = this.$route.path
       const currentLang = this.getCurrentLangFromPath()
       const versionRegex = /\/(v\d+)\//
+      const basePath = this.getBasePath()
       
       let newPath
       if (versionRegex.test(currentPath)) {
@@ -44,7 +49,7 @@ export default {
         newPath = `${currentLang}${this.currentVersion}${currentPath.replace(/^\/[^/]*/, '')}`
       }
       
-      window.location.href = newPath
+      window.location.href = basePath + newPath.replace(/^\//, '')
     },
     
     getCurrentLangFromPath() {

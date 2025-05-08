@@ -198,3 +198,10 @@ docs/
 5. プロジェクト作成スクリプトは`scripts/create-project.js`に実装されています。
 6. テンプレートファイルは`scripts/templates/`に配置されています。
 7. GitHub Actionsの設定は`.github/workflows/deploy.yml`に定義されています。
+8. GitHub Pagesへのデプロイ時にはベースパス（`/docs/`）が設定されています。
+
+## 最近の更新
+
+### 2025/5/9
+- GitHub Pagesデプロイ用のベースパス設定を追加
+- VersionSelectorとLanguageSwitcherコンポーネントをベースパスに対応するよう修正

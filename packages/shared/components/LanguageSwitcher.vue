@@ -38,9 +38,14 @@ export default {
       return ''
     },
     
+    getBasePath() {
+      return this.$site?.base || '/'
+    },
+    
     switchLanguage() {
       const currentPath = this.$route.path
       const currentVersion = this.getCurrentVersionFromPath()
+      const basePath = this.getBasePath()
       
       // 現在の言語パスを削除
       let pathWithoutLang = currentPath
@@ -51,7 +56,7 @@ export default {
       // 新しい言語パスを追加
       const newPath = `${this.currentLanguage}${pathWithoutLang}`
       
-      window.location.href = newPath
+      window.location.href = basePath + newPath.replace(/^\//, '')
     },
     
     getCurrentVersionFromPath() {
