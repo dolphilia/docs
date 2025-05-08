@@ -1,0 +1,114 @@
+/**
+ * VitePressプロジェクトの共通スタイル
+ */
+
+:root {
+  /* ブランドカラー */
+  --vp-c-brand: #3eaf7c;
+  --vp-c-brand-light: #4abf8a;
+  --vp-c-brand-lighter: #5ccf99;
+  --vp-c-brand-dark: #369f6b;
+  --vp-c-brand-darker: #2e8a5e;
+  
+  /* アクセントカラー */
+  --vp-c-accent: #3451b2;
+  --vp-c-accent-light: #3a5ccc;
+  --vp-c-accent-lighter: #5e7eff;
+  --vp-c-accent-dark: #2a3f8c;
+  --vp-c-accent-darker: #1e2d66;
+  
+  /* フォント */
+  --vp-font-family-base: 'Noto Sans JP', 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --vp-font-family-mono: 'Noto Sans Mono', Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* ヘッダーのカスタマイズ */
+.VPNav {
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+/* 言語切り替えとバージョン選択のコンテナ */
+.vp-doc-header-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .vp-doc-header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .language-switcher,
+  .version-selector {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* コードブロックのカスタマイズ */
+.vp-doc div[class*='language-'] {
+  border-radius: 6px;
+}
+
+/* テーブルのカスタマイズ */
+.vp-doc table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+}
+
+.vp-doc tr:nth-child(2n) {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.vp-doc th,
+.vp-doc td {
+  border: 1px solid var(--vp-c-divider);
+  padding: 8px 16px;
+}
+
+/* プロジェクトカードのスタイル */
+.project-card {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+.project-card .description {
+  color: var(--vp-c-text-2);
+  margin-bottom: 12px;
+}
+
+.project-card .links {
+  display: flex;
+  gap: 8px;
+}
+
+.project-card .links a {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: var(--vp-c-brand-dimm);
+  color: var(--vp-c-brand);
+  font-size: 0.9em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.project-card .links a:hover {
+  background-color: var(--vp-c-brand);
+  color: white;
+}

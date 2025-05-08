@@ -1,0 +1,20 @@
+{
+  "name": "main-site",
+  "version": "1.0.0",
+  "description": "VitePressモノレポドキュメントサイトのメインページ",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "keywords": [
+    "vitepress",
+    "documentation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.40"
+  }
+}

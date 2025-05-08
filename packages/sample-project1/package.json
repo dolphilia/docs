@@ -1,0 +1,21 @@
+{
+  "name": "sample-project1",
+  "version": "1.0.0",
+  "description": "VitePressモノレポドキュメントサイトのサンプルプロジェクト1",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "keywords": [
+    "vitepress",
+    "documentation",
+    "sample"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.40"
+  }
+}

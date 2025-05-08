@@ -1,0 +1,27 @@
+{
+  "name": "vitepress-monorepo-docs",
+  "version": "1.0.0",
+  "description": "複数のVitePressプロジェクトを管理するモノレポドキュメントサイト",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter main-site dev",
+    "build": "pnpm --filter \"./packages/**\" build && pnpm --filter main-site build",
+    "preview": "pnpm --filter main-site preview",
+    "create-project": "node scripts/create-project.js"
+  },
+  "keywords": [
+    "vitepress",
+    "documentation",
+    "monorepo",
+    "pnpm"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.40"
+  }
+}
