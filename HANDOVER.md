@@ -57,6 +57,11 @@
    - コマンドラインインターフェースの実装
    - 対話型入力機能の実装
 
+9. **GitHub Actionsの設定**
+   - デプロイワークフローの作成（.github/workflows/deploy.yml）
+   - ビルドとデプロイの自動化
+   - プルリクエスト時の自動ビルド確認
+
 ### ディレクトリ構造
 
 ```
@@ -83,6 +88,7 @@ docs/
 │       └── api-functions.en.md.template
 ├── .github/
 │   └── workflows/
+│       └── deploy.yml
 ├── apps/
 │   └── main-site/
 │       ├── package.json
@@ -168,6 +174,21 @@ docs/
    pnpm create-project <プロジェクト名> --title "プロジェクトタイトル" --title-en "Project Title" --desc "プロジェクトの説明" --desc-en "Project Description"
    ```
 
+## デプロイ
+
+1. **GitHub Pagesへのデプロイ**
+   - mainブランチへのプッシュ時に自動的にGitHub Actionsが実行され、GitHub Pagesにデプロイされます
+   - GitHub Actionsのワークフローは`.github/workflows/deploy.yml`に定義されています
+   - デプロイの進行状況はGitHubリポジトリの「Actions」タブで確認できます
+
+2. **手動デプロイ**
+   - GitHub Actionsのワークフローを手動で実行することもできます
+   - GitHubリポジトリの「Actions」タブから「Deploy VitePress Site」ワークフローを選択し、「Run workflow」ボタンをクリックします
+
+3. **プルリクエスト時のビルド確認**
+   - プルリクエスト時にはビルドのみが実行され、デプロイは行われません
+   - これにより、プルリクエストがマージされる前にビルドが正常に完了することを確認できます
+
 ## 注意点
 
 1. 共通コンポーネントは`packages/shared/components/`に配置されています。
@@ -176,3 +197,4 @@ docs/
 4. メインサイトは`apps/main-site/`に配置されています。
 5. プロジェクト作成スクリプトは`scripts/create-project.js`に実装されています。
 6. テンプレートファイルは`scripts/templates/`に配置されています。
+7. GitHub Actionsの設定は`.github/workflows/deploy.yml`に定義されています。
