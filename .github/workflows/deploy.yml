@@ -11,43 +11,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  # ビルドとデプロイを1つのジョブにまとめる
-  build-and-deploy:
+  # ビルドのみを行うシンプルなジョブ
+  build:
     runs-on: ubuntu-latest
-    # プッシュ時またはワークフロー手動実行時のみデプロイを実行
-    permissions:
-      pages: write
-      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          version: 8
 
       - name: Install dependencies
         run: pnpm install
@@ -55,17 +34,8 @@ jobs:
       - name: Build
         run: pnpm build
 
-      # ビルド後、直接デプロイ用のアーティファクトをアップロード
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: apps/main-site/.vitepress/dist
-
-      # プッシュ時またはワークフロー手動実行時のみデプロイを実行
-      - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        id: deployment
-        uses: actions/deploy-pages@v2
+      # ビルド成功を確認するだけのステップ
+      - name: Verify build success
+        run: |
+          echo "Build completed successfully!"
+          ls -la apps/main-site/.vitepress/dist
