@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --filter main-site dev",
-    "build": "pnpm --filter \"./packages/**\" build && pnpm --filter main-site build && node scripts/copy-projects-to-main.js",
+    "build": "pnpm --filter \"./packages/**\" build && pnpm --filter main-site build && node scripts/copy-projects-to-main.mjs",
     "preview": "pnpm --filter main-site preview",
     "create-project": "node scripts/create-project.js"
   },
