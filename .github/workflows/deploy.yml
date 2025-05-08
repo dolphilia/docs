@@ -11,9 +11,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  # ビルドのみを行うシンプルなジョブ
+  # ビルドとデプロイ準備を行うジョブ
   build:
     runs-on: ubuntu-latest
+    # GitHub Pagesへのアクセス権を設定
+    permissions:
+      pages: write
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -34,8 +38,12 @@ jobs:
       - name: Build
         run: pnpm build
 
-      # ビルド成功を確認するだけのステップ
-      - name: Verify build success
-        run: |
-          echo "Build completed successfully!"
-          ls -la apps/main-site/.vitepress/dist
+      # GitHub Pagesの設定
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      # ビルド成果物をアップロード
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: apps/main-site/.vitepress/dist
