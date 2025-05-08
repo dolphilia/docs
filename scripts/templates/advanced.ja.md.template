@@ -1,0 +1,108 @@
+---
+title: 高度な使い方 | {{projectTitle}}
+description: {{projectTitle}}の高度な使い方
+---
+
+# {{projectTitle}}の高度な使い方
+
+<VersionSelector />
+<LanguageSwitcher />
+
+## 高度な機能
+
+このページでは、{{projectTitle}}のより高度な機能と使い方について説明します。
+
+### カスタムプラグイン
+
+独自のプラグインを作成して、機能を拡張することができます。
+
+```javascript
+// カスタムプラグインの例
+import { createPlugin } from '{{projectName}}';
+
+const myPlugin = createPlugin({
+  name: 'my-plugin',
+  setup(api) {
+    // プラグインのセットアップコード
+    api.addHook('beforeRender', (context) => {
+      // レンダリング前の処理
+    });
+    
+    api.addHook('afterRender', (context) => {
+      // レンダリング後の処理
+    });
+  }
+});
+
+// プラグインを使用
+import { example } from '{{projectName}}';
+example.use(myPlugin);
+```
+
+### パフォーマンス最適化
+
+大規模なプロジェクトでのパフォーマンスを最適化するためのテクニックを紹介します。
+
+#### キャッシュの活用
+
+```javascript
+import { createCache } from '{{projectName}}';
+
+const cache = createCache({
+  maxSize: 100,
+  ttl: 3600 // 1時間
+});
+
+// キャッシュを使用
+const result = cache.getOrSet('key', () => {
+  // 重い処理
+  return heavyComputation();
+});
+```
+
+#### 遅延読み込み
+
+```javascript
+// 必要になったときだけモジュールを読み込む
+const lazyModule = () => import('./heavy-module.js');
+
+// 使用時
+button.addEventListener('click', async () => {
+  const module = await lazyModule();
+  module.doSomething();
+});
+```
+
+## トラブルシューティング
+
+よくある問題とその解決方法について説明します。
+
+### エラー: モジュールが見つからない
+
+```
+Error: Cannot find module '{{projectName}}'
+```
+
+このエラーは、パッケージが正しくインストールされていない場合に発生します。以下の手順で解決してください：
+
+1. `node_modules`ディレクトリを削除
+2. パッケージマネージャーのキャッシュをクリア
+3. パッケージを再インストール
+
+```bash
+rm -rf node_modules
+npm cache clean --force
+npm install
+```
+
+### エラー: バージョンの不一致
+
+依存関係のバージョンが一致しない場合は、以下のコマンドで解決できます：
+
+```bash
+npm dedupe
+```
+
+## API
+
+より詳細なAPI情報については、[API概要](./api/index.md)のページを参照してください。

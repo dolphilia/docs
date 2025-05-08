@@ -1,0 +1,192 @@
+---
+title: 関数リファレンス | {{projectTitle}}
+description: {{projectTitle}}の関数リファレンス
+---
+
+# {{projectTitle}} 関数リファレンス
+
+<VersionSelector />
+<LanguageSwitcher />
+
+## はじめに
+
+このページでは、{{projectTitle}}が提供する関数の詳細なリファレンスを提供します。
+
+## コア関数
+
+### `core.process(data)`
+
+データを処理します。
+
+**パラメータ:**
+
+- `data` (Object): 処理するデータオブジェクト
+
+**戻り値:**
+
+- (Object): 処理結果
+
+**例:**
+
+```javascript
+import { core } from '{{projectName}}';
+
+const data = {
+  id: 1,
+  name: 'example'
+};
+
+const result = core.process(data);
+console.log(result);
+```
+
+### `core.initialize(options)`
+
+ライブラリを初期化します。
+
+**パラメータ:**
+
+- `options` (Object): 初期化オプション
+  - `debug` (boolean, optional): デバッグモードを有効にするかどうか。デフォルトは `false`
+  - `timeout` (number, optional): タイムアウト（ミリ秒）。デフォルトは `30000`
+
+**戻り値:**
+
+- (void)
+
+**例:**
+
+```javascript
+import { core } from '{{projectName}}';
+
+core.initialize({
+  debug: true,
+  timeout: 60000
+});
+```
+
+## ユーティリティ関数
+
+### `utils.format(data, options)`
+
+データをフォーマットします。
+
+**パラメータ:**
+
+- `data` (any): フォーマットするデータ
+- `options` (Object, optional): フォーマットオプション
+  - `type` (string, optional): フォーマットタイプ。'json', 'xml', 'text'のいずれか。デフォルトは 'json'
+  - `indent` (number, optional): インデントのスペース数。デフォルトは `2`
+
+**戻り値:**
+
+- (string): フォーマットされた文字列
+
+**例:**
+
+```javascript
+import { utils } from '{{projectName}}';
+
+const data = { id: 1, name: 'example' };
+const formatted = utils.format(data, { type: 'json', indent: 4 });
+console.log(formatted);
+```
+
+### `utils.validate(data, schema)`
+
+データをスキーマに対して検証します。
+
+**パラメータ:**
+
+- `data` (any): 検証するデータ
+- `schema` (Object): 検証スキーマ
+
+**戻り値:**
+
+- (boolean): 検証結果
+
+**例:**
+
+```javascript
+import { utils } from '{{projectName}}';
+
+const data = { id: 1, name: 'example' };
+const schema = {
+  type: 'object',
+  properties: {
+    id: { type: 'number' },
+    name: { type: 'string' }
+  },
+  required: ['id', 'name']
+};
+
+const isValid = utils.validate(data, schema);
+console.log(isValid); // true
+```
+
+## プラグインAPI
+
+### `createPlugin(options)`
+
+プラグインを作成します。
+
+**パラメータ:**
+
+- `options` (Object): プラグインオプション
+  - `name` (string): プラグイン名
+  - `version` (string, optional): プラグインバージョン
+  - `setup` (Function): プラグインのセットアップ関数
+
+**戻り値:**
+
+- (Object): プラグインオブジェクト
+
+**例:**
+
+```javascript
+import { createPlugin } from '{{projectName}}';
+
+const myPlugin = createPlugin({
+  name: 'my-plugin',
+  version: '1.0.0',
+  setup(api) {
+    api.addHook('beforeRender', (context) => {
+      // レンダリング前の処理
+    });
+  }
+});
+
+// プラグインを使用
+import { core } from '{{projectName}}';
+core.use(myPlugin);
+```
+
+## エラー処理
+
+### `errors.ErrorType`
+
+エラータイプの列挙型。
+
+**値:**
+
+- `VALIDATION_ERROR`: バリデーションエラー
+- `TIMEOUT_ERROR`: タイムアウトエラー
+- `NETWORK_ERROR`: ネットワークエラー
+- `UNKNOWN_ERROR`: 不明なエラー
+
+**例:**
+
+```javascript
+import { errors } from '{{projectName}}';
+
+try {
+  // 何らかの処理
+} catch (error) {
+  if (error.type === errors.ErrorType.VALIDATION_ERROR) {
+    console.error('バリデーションエラー:', error.message);
+  } else if (error.type === errors.ErrorType.TIMEOUT_ERROR) {
+    console.error('タイムアウトエラー:', error.message);
+  } else {
+    console.error('その他のエラー:', error);
+  }
+}

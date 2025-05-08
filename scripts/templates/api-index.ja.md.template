@@ -1,0 +1,88 @@
+---
+title: API概要 | {{projectTitle}}
+description: {{projectTitle}}のAPI概要
+---
+
+# {{projectTitle}} API概要
+
+<VersionSelector />
+<LanguageSwitcher />
+
+## はじめに
+
+このページでは、{{projectTitle}}のAPIの概要について説明します。詳細な関数リファレンスについては、[関数リファレンス](./functions.md)のページを参照してください。
+
+## API構造
+
+{{projectTitle}}のAPIは以下のカテゴリに分類されています：
+
+### コア機能
+
+コア機能は、{{projectTitle}}の基本的な機能を提供します。
+
+```javascript
+import { core } from '{{projectName}}';
+
+// コア機能の使用例
+const result = core.process(data);
+```
+
+### ユーティリティ
+
+ユーティリティ関数は、一般的なタスクを簡単に実行するためのヘルパー関数を提供します。
+
+```javascript
+import { utils } from '{{projectName}}';
+
+// ユーティリティ関数の使用例
+const formatted = utils.format(data);
+```
+
+### プラグインAPI
+
+プラグインAPIは、{{projectTitle}}の機能を拡張するためのインターフェースを提供します。
+
+```javascript
+import { createPlugin } from '{{projectName}}';
+
+// プラグインの作成例
+const myPlugin = createPlugin({
+  name: 'my-plugin',
+  // プラグインの設定
+});
+```
+
+## 型定義
+
+TypeScriptを使用している場合、{{projectTitle}}は完全な型定義を提供しています。
+
+```typescript
+import { DataType, PluginOptions } from '{{projectName}}';
+
+// 型の使用例
+const data: DataType = {
+  id: 1,
+  name: 'example'
+};
+
+const options: PluginOptions = {
+  // オプションの設定
+};
+```
+
+## エラー処理
+
+{{projectTitle}}のAPIは、エラーが発生した場合に例外をスローします。適切なエラー処理を実装することをお勧めします。
+
+```javascript
+try {
+  const result = core.process(data);
+} catch (error) {
+  console.error('処理中にエラーが発生しました:', error);
+  // エラー処理
+}
+```
+
+## 詳細なリファレンス
+
+各関数の詳細な使用方法については、[関数リファレンス](./functions.md)のページを参照してください。

@@ -1,0 +1,192 @@
+---
+title: Function Reference | {{projectTitleEn}}
+description: Function reference of {{projectTitleEn}}
+---
+
+# {{projectTitleEn}} Function Reference
+
+<VersionSelector />
+<LanguageSwitcher />
+
+## Introduction
+
+This page provides a detailed reference for the functions provided by {{projectTitleEn}}.
+
+## Core Functions
+
+### `core.process(data)`
+
+Processes data.
+
+**Parameters:**
+
+- `data` (Object): The data object to process
+
+**Returns:**
+
+- (Object): The processing result
+
+**Example:**
+
+```javascript
+import { core } from '{{projectName}}';
+
+const data = {
+  id: 1,
+  name: 'example'
+};
+
+const result = core.process(data);
+console.log(result);
+```
+
+### `core.initialize(options)`
+
+Initializes the library.
+
+**Parameters:**
+
+- `options` (Object): Initialization options
+  - `debug` (boolean, optional): Whether to enable debug mode. Default is `false`
+  - `timeout` (number, optional): Timeout in milliseconds. Default is `30000`
+
+**Returns:**
+
+- (void)
+
+**Example:**
+
+```javascript
+import { core } from '{{projectName}}';
+
+core.initialize({
+  debug: true,
+  timeout: 60000
+});
+```
+
+## Utility Functions
+
+### `utils.format(data, options)`
+
+Formats data.
+
+**Parameters:**
+
+- `data` (any): The data to format
+- `options` (Object, optional): Formatting options
+  - `type` (string, optional): Format type. One of 'json', 'xml', 'text'. Default is 'json'
+  - `indent` (number, optional): Number of spaces for indentation. Default is `2`
+
+**Returns:**
+
+- (string): The formatted string
+
+**Example:**
+
+```javascript
+import { utils } from '{{projectName}}';
+
+const data = { id: 1, name: 'example' };
+const formatted = utils.format(data, { type: 'json', indent: 4 });
+console.log(formatted);
+```
+
+### `utils.validate(data, schema)`
+
+Validates data against a schema.
+
+**Parameters:**
+
+- `data` (any): The data to validate
+- `schema` (Object): The validation schema
+
+**Returns:**
+
+- (boolean): The validation result
+
+**Example:**
+
+```javascript
+import { utils } from '{{projectName}}';
+
+const data = { id: 1, name: 'example' };
+const schema = {
+  type: 'object',
+  properties: {
+    id: { type: 'number' },
+    name: { type: 'string' }
+  },
+  required: ['id', 'name']
+};
+
+const isValid = utils.validate(data, schema);
+console.log(isValid); // true
+```
+
+## Plugin API
+
+### `createPlugin(options)`
+
+Creates a plugin.
+
+**Parameters:**
+
+- `options` (Object): Plugin options
+  - `name` (string): Plugin name
+  - `version` (string, optional): Plugin version
+  - `setup` (Function): Plugin setup function
+
+**Returns:**
+
+- (Object): Plugin object
+
+**Example:**
+
+```javascript
+import { createPlugin } from '{{projectName}}';
+
+const myPlugin = createPlugin({
+  name: 'my-plugin',
+  version: '1.0.0',
+  setup(api) {
+    api.addHook('beforeRender', (context) => {
+      // Pre-rendering process
+    });
+  }
+});
+
+// Using the plugin
+import { core } from '{{projectName}}';
+core.use(myPlugin);
+```
+
+## Error Handling
+
+### `errors.ErrorType`
+
+Enumeration of error types.
+
+**Values:**
+
+- `VALIDATION_ERROR`: Validation error
+- `TIMEOUT_ERROR`: Timeout error
+- `NETWORK_ERROR`: Network error
+- `UNKNOWN_ERROR`: Unknown error
+
+**Example:**
+
+```javascript
+import { errors } from '{{projectName}}';
+
+try {
+  // Some operation
+} catch (error) {
+  if (error.type === errors.ErrorType.VALIDATION_ERROR) {
+    console.error('Validation error:', error.message);
+  } else if (error.type === errors.ErrorType.TIMEOUT_ERROR) {
+    console.error('Timeout error:', error.message);
+  } else {
+    console.error('Other error:', error);
+  }
+}

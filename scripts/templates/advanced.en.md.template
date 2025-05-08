@@ -1,0 +1,108 @@
+---
+title: Advanced Usage | {{projectTitleEn}}
+description: Advanced usage of {{projectTitleEn}}
+---
+
+# Advanced Usage of {{projectTitleEn}}
+
+<VersionSelector />
+<LanguageSwitcher />
+
+## Advanced Features
+
+This page explains the more advanced features and usage of {{projectTitleEn}}.
+
+### Custom Plugins
+
+You can create your own plugins to extend functionality.
+
+```javascript
+// Custom plugin example
+import { createPlugin } from '{{projectName}}';
+
+const myPlugin = createPlugin({
+  name: 'my-plugin',
+  setup(api) {
+    // Plugin setup code
+    api.addHook('beforeRender', (context) => {
+      // Pre-rendering process
+    });
+    
+    api.addHook('afterRender', (context) => {
+      // Post-rendering process
+    });
+  }
+});
+
+// Using the plugin
+import { example } from '{{projectName}}';
+example.use(myPlugin);
+```
+
+### Performance Optimization
+
+Here are techniques to optimize performance for large projects.
+
+#### Utilizing Cache
+
+```javascript
+import { createCache } from '{{projectName}}';
+
+const cache = createCache({
+  maxSize: 100,
+  ttl: 3600 // 1 hour
+});
+
+// Using the cache
+const result = cache.getOrSet('key', () => {
+  // Heavy computation
+  return heavyComputation();
+});
+```
+
+#### Lazy Loading
+
+```javascript
+// Load modules only when needed
+const lazyModule = () => import('./heavy-module.js');
+
+// When using
+button.addEventListener('click', async () => {
+  const module = await lazyModule();
+  module.doSomething();
+});
+```
+
+## Troubleshooting
+
+Here are common issues and their solutions.
+
+### Error: Module Not Found
+
+```
+Error: Cannot find module '{{projectName}}'
+```
+
+This error occurs when the package is not properly installed. Resolve it with these steps:
+
+1. Remove the `node_modules` directory
+2. Clear the package manager's cache
+3. Reinstall the package
+
+```bash
+rm -rf node_modules
+npm cache clean --force
+npm install
+```
+
+### Error: Version Mismatch
+
+If you have dependency version mismatches, resolve them with:
+
+```bash
+npm dedupe
+```
+
+## API
+
+For more detailed API information, please refer to the [API Overview](./api/index.md) page.

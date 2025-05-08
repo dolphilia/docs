@@ -1,0 +1,32 @@
+---
+title: {{projectTitleEn}}
+description: {{projectDescriptionEn}}
+---
+
+# {{projectTitleEn}}
+
+<VersionSelector />
+<LanguageSwitcher />
+
+## Overview
+
+This project is {{projectDescriptionEn}}.
+
+## Features
+
+- **Monorepo Structure**: Efficient project management using pnpm workspaces
+- **Shared Components**: Reusable components across all projects
+- **Multilingual Support**: Easy management of Japanese and English documentation
+- **Version Management**: Easy switching between document versions
+
+## Usage
+
+For information on how to use this project, please refer to the [Usage](./usage.md) page.
+
+## Advanced Usage
+
+For more advanced usage, please refer to the [Advanced Usage](./advanced.md) page.
+
+## API
+
+For API details, please refer to the [API Overview](./api/index.md) page.

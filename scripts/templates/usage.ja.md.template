@@ -1,0 +1,49 @@
+---
+title: 使い方 | {{projectTitle}}
+description: {{projectTitle}}の使い方
+---
+
+# {{projectTitle}}の使い方
+
+<VersionSelector />
+<LanguageSwitcher />
+
+## インストール
+
+```bash
+# npmを使用する場合
+npm install {{projectName}}
+
+# yarnを使用する場合
+yarn add {{projectName}}
+
+# pnpmを使用する場合
+pnpm add {{projectName}}
+```
+
+## 基本的な使い方
+
+```javascript
+// モジュールをインポート
+import { example } from '{{projectName}}';
+
+// 関数を使用
+example();
+```
+
+## 設定
+
+設定ファイルを作成することで、動作をカスタマイズできます。
+
+```javascript
+// {{projectName}}.config.js
+export default {
+  // 設定オプション
+  option1: 'value1',
+  option2: 'value2'
+};
+```
+
+## 高度な使い方
+
+より高度な使い方については、[高度な使い方](./advanced.md)のページを参照してください。

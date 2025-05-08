@@ -1,0 +1,88 @@
+---
+title: API Overview | {{projectTitleEn}}
+description: API overview of {{projectTitleEn}}
+---
+
+# {{projectTitleEn}} API Overview
+
+<VersionSelector />
+<LanguageSwitcher />
+
+## Introduction
+
+This page provides an overview of the {{projectTitleEn}} API. For detailed function references, please refer to the [Function Reference](./functions.md) page.
+
+## API Structure
+
+The {{projectTitleEn}} API is categorized as follows:
+
+### Core Functionality
+
+Core functionality provides the basic features of {{projectTitleEn}}.
+
+```javascript
+import { core } from '{{projectName}}';
+
+// Example of using core functionality
+const result = core.process(data);
+```
+
+### Utilities
+
+Utility functions provide helper functions for common tasks.
+
+```javascript
+import { utils } from '{{projectName}}';
+
+// Example of using utility functions
+const formatted = utils.format(data);
+```
+
+### Plugin API
+
+The Plugin API provides an interface for extending the functionality of {{projectTitleEn}}.
+
+```javascript
+import { createPlugin } from '{{projectName}}';
+
+// Example of creating a plugin
+const myPlugin = createPlugin({
+  name: 'my-plugin',
+  // Plugin configuration
+});
+```
+
+## Type Definitions
+
+If you are using TypeScript, {{projectTitleEn}} provides complete type definitions.
+
+```typescript
+import { DataType, PluginOptions } from '{{projectName}}';
+
+// Example of using types
+const data: DataType = {
+  id: 1,
+  name: 'example'
+};
+
+const options: PluginOptions = {
+  // Option settings
+};
+```
+
+## Error Handling
+
+The {{projectTitleEn}} API throws exceptions when errors occur. It is recommended to implement proper error handling.
+
+```javascript
+try {
+  const result = core.process(data);
+} catch (error) {
+  console.error('An error occurred during processing:', error);
+  // Error handling
+}
+```
+
+## Detailed Reference
+
+For detailed usage of each function, please refer to the [Function Reference](./functions.md) page.

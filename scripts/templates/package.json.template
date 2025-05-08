@@ -1,0 +1,21 @@
+{
+  "name": "{{projectName}}",
+  "version": "1.0.0",
+  "description": "{{projectDescription}}",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "keywords": [
+    "vitepress",
+    "documentation",
+    "{{projectName}}"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.40"
+  }
+}

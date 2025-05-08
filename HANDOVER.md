@@ -51,6 +51,12 @@
    - バージョン管理の実装
    - APIドキュメントの作成
 
+8. **プロジェクト作成スクリプトの実装**
+   - プロジェクト作成スクリプト（scripts/create-project.js）の作成
+   - テンプレートファイルの作成（scripts/templates/）
+   - コマンドラインインターフェースの実装
+   - 対話型入力機能の実装
+
 ### ディレクトリ構造
 
 ```
@@ -60,6 +66,21 @@ docs/
 ├── docs-plan.md
 ├── HANDOVER.md
 ├── TODO.md
+├── scripts/
+│   ├── create-project.js
+│   └── templates/
+│       ├── package.json.template
+│       ├── config.js.template
+│       ├── index.ja.md.template
+│       ├── index.en.md.template
+│       ├── usage.ja.md.template
+│       ├── usage.en.md.template
+│       ├── advanced.ja.md.template
+│       ├── advanced.en.md.template
+│       ├── api-index.ja.md.template
+│       ├── api-index.en.md.template
+│       ├── api-functions.ja.md.template
+│       └── api-functions.en.md.template
 ├── .github/
 │   └── workflows/
 ├── apps/
@@ -75,13 +96,38 @@ docs/
 │       └── projects/
 │           └── index.md
 └── packages/
-    └── shared/
+    ├── shared/
+    │   ├── package.json
+    │   ├── components/
+    │   │   ├── VersionSelector.vue
+    │   │   └── LanguageSwitcher.vue
+    │   ├── theme/
+    │   │   ├── index.js
+    │   │   ├── Layout.vue
+    │   │   └── styles/
+    │   │       └── index.css
+    │   └── vitepress-config/
+    │       └── index.js
+    └── sample-project1/
         ├── package.json
-        ├── components/
-        │   ├── VersionSelector.vue
-        │   └── LanguageSwitcher.vue
-        └── vitepress-config/
-            └── index.js
+        ├── .vitepress/
+        │   └── config.js
+        ├── ja/
+        │   └── v1/
+        │       ├── index.md
+        │       ├── usage.md
+        │       ├── advanced.md
+        │       └── api/
+        │           ├── index.md
+        │           └── functions.md
+        └── en/
+            └── v1/
+                ├── index.md
+                ├── usage.md
+                ├── advanced.md
+                └── api/
+                    ├── index.md
+                    └── functions.md
 ```
 
 ## 技術スタック
@@ -113,9 +159,20 @@ docs/
    pnpm build
    ```
 
+4. 新しいプロジェクトの作成
+   ```bash
+   # 対話型インターフェースでプロジェクトを作成
+   pnpm create-project
+   
+   # コマンドライン引数でプロジェクトを作成
+   pnpm create-project <プロジェクト名> --title "プロジェクトタイトル" --title-en "Project Title" --desc "プロジェクトの説明" --desc-en "Project Description"
+   ```
+
 ## 注意点
 
 1. 共通コンポーネントは`packages/shared/components/`に配置されています。
 2. 共通設定は`packages/shared/vitepress-config/`に配置されています。
 3. 各プロジェクトは`packages/<プロジェクト名>/`に配置する予定です。
 4. メインサイトは`apps/main-site/`に配置されています。
+5. プロジェクト作成スクリプトは`scripts/create-project.js`に実装されています。
+6. テンプレートファイルは`scripts/templates/`に配置されています。
