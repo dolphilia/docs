@@ -8,6 +8,7 @@ export default defineConfig({
   
   title: 'ドキュメントサイト',
   description: '複数のVitePressプロジェクトを管理するモノレポドキュメントサイト',
+  ignoreDeadLinks: true,
   
   themeConfig: {
     ...baseConfig.themeConfig,

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "VitePressモノレポドキュメントサイトのメインページ",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
