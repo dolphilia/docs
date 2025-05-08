@@ -11,13 +11,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  # ビルドとデプロイ準備を行うジョブ
-  build:
+  # ビルドとデプロイを行うジョブ
+  build-and-deploy:
     runs-on: ubuntu-latest
-    # GitHub Pagesへのアクセス権を設定
-    permissions:
-      pages: write
-      id-token: write
+    # プッシュ時またはワークフロー手動実行時のみデプロイを実行
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -38,12 +36,9 @@ jobs:
       - name: Build
         run: pnpm build
 
-      # GitHub Pagesの設定
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-
-      # ビルド成果物をアップロード
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
+      # ビルド成果物をgh-pagesブランチにデプロイ
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: apps/main-site/.vitepress/dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./apps/main-site/.vitepress/dist
