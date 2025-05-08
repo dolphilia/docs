@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     # プッシュ時またはワークフロー手動実行時のみデプロイを実行
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    # リポジトリへの書き込み権限を追加
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
