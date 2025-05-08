@@ -11,9 +11,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  # ビルドジョブ
-  build:
+  # ビルドとデプロイを1つのジョブにまとめる
+  build-and-deploy:
     runs-on: ubuntu-latest
+    # プッシュ時またはワークフロー手動実行時のみデプロイを実行
+    permissions:
+      pages: write
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -51,36 +55,17 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: dist
-          path: apps/main-site/.vitepress/dist
-
-  # デプロイジョブ（プッシュ時のみ実行）
-  deploy:
-    needs: build
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    # GitHub Pagesのデフォルト環境を使用
-    steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v1
-        with:
-          name: dist
-          path: dist
-
+      # ビルド後、直接デプロイ用のアーティファクトをアップロード
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: dist
+          path: apps/main-site/.vitepress/dist
 
+      # プッシュ時またはワークフロー手動実行時のみデプロイを実行
       - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         id: deployment
         uses: actions/deploy-pages@v2
