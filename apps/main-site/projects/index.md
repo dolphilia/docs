@@ -18,7 +18,7 @@ import { withBase } from 'vitepress'
 
 このプロジェクトは、VitePressモノレポドキュメントサイトのサンプルプロジェクトです。複数のVitePressプロジェクトをモノレポ構造で管理する方法を示すために作成されました。
 
-- <a :href="withBase('/sample-project1/ja/v1/')">日本語ドキュメント</a>
+- [日本語ドキュメント](/sample-project1/ja/v1/){:target="_blank"}
 - <a :href="withBase('/sample-project1/en/v1/')">English Documentation</a>
 
 ### サンプルプロジェクト2
