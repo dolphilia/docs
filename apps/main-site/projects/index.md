@@ -1,10 +1,14 @@
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 # プロジェクト一覧
 
 このページでは、このドキュメントサイトで管理されているプロジェクトの一覧を紹介します。各プロジェクトは、独自のドキュメントを持ち、多言語対応とバージョン管理が行われています。
 
 ## プロジェクトの追加方法
 
-新しいプロジェクトを追加する方法については、[プロジェクトの追加](/guide/add-project)ガイドを参照してください。
+新しいプロジェクトを追加する方法については、[プロジェクトの追加]({{ withBase('/guide/add-project') }})ガイドを参照してください。
 
 ## プロジェクト一覧
 
@@ -14,15 +18,15 @@
 
 このプロジェクトは、VitePressモノレポドキュメントサイトのサンプルプロジェクトです。複数のVitePressプロジェクトをモノレポ構造で管理する方法を示すために作成されました。
 
-- [日本語ドキュメント](/sample-project1/ja/v1/)
-- [English Documentation](/sample-project1/en/v1/)
+- [日本語ドキュメント]({{ withBase('/sample-project1/ja/v1/') }})
+- [English Documentation]({{ withBase('/sample-project1/en/v1/') }})
 
 ### サンプルプロジェクト2
 
 サンプルプロジェクト2の説明文をここに記載します。このプロジェクトは、多言語対応とバージョン管理のサンプルとして作成されました。
 
-- [日本語ドキュメント](/sample-project2/ja/v1/)
-- [English Documentation](/sample-project2/en/v1/)
+- [日本語ドキュメント]({{ withBase('/sample-project2/ja/v1/') }})
+- [English Documentation]({{ withBase('/sample-project2/en/v1/') }})
 
 ## プロジェクトの管理
 

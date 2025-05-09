@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: はじめる
-      link: /guide/
+      link: /docs/guide/
     - theme: alt
       text: プロジェクト一覧
-      link: /projects/
+      link: /docs/projects/
 
 features:
   - icon: 📚
@@ -31,6 +31,10 @@ features:
     details: ドキュメントの各バージョンを簡単に切り替えられます。
 ---
 
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 ## モノレポドキュメントサイトへようこそ
 
 このサイトは、複数のVitePressプロジェクトをモノレポ構造で管理するためのプラットフォームです。技術ドキュメントの翻訳と管理を効率的に行うことができます。
@@ -45,5 +49,5 @@ features:
 
 ### 使い方
 
-1. [ガイド](/guide/)を参照して、基本的な使い方を学びます。
-2. [プロジェクト一覧](/projects/)から、各プロジェクトのドキュメントにアクセスできます。
+1. [ガイド]({{ withBase('/guide/') }})を参照して、基本的な使い方を学びます。
+2. [プロジェクト一覧]({{ withBase('/projects/') }})から、各プロジェクトのドキュメントにアクセスできます。

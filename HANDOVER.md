@@ -207,3 +207,8 @@ docs/
 - VersionSelectorとLanguageSwitcherコンポーネントをベースパスに対応するよう修正
 - サンプルプロジェクトのビルド結果をメインサイトのビルド結果にコピーするスクリプトを追加
 - ビルドスクリプトを修正して、サンプルプロジェクトのビルド結果をメインサイトのビルド結果にコピーするように変更
+- メインサイトからプロジェクトへのリンクを修正し、withBase関数を使用してベースパスを考慮するように変更
+  - apps/main-site/projects/index.md
+  - apps/main-site/guide/index.md
+  - apps/main-site/index.md
+  - apps/main-site/guide/add-project.md

@@ -1,3 +1,7 @@
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 # ガイド
 
 ## 概要
@@ -50,5 +54,5 @@ docs/
 
 ## 次のステップ
 
-- [使い方](./usage.md)を確認して、基本的な操作方法を学びましょう。
-- [プロジェクトの追加](./add-project.md)方法を確認して、新しいプロジェクトを追加してみましょう。
+- [使い方]({{ withBase('/guide/usage') }})を確認して、基本的な操作方法を学びましょう。
+- [プロジェクトの追加]({{ withBase('/guide/add-project') }})方法を確認して、新しいプロジェクトを追加してみましょう。

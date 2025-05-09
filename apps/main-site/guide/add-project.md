@@ -1,3 +1,7 @@
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 # プロジェクトの追加
 
 このガイドでは、新しいプロジェクトをモノレポに追加する方法を説明します。
@@ -120,8 +124,8 @@ sidebar: {
 
 ## ドキュメント
 
-- [日本語ドキュメント](/<プロジェクト名>/ja/v1/)
-- [English Documentation](/<プロジェクト名>/en/v1/)
+- [日本語ドキュメント]({{ withBase('/<プロジェクト名>/ja/v1/') }})
+- [English Documentation]({{ withBase('/<プロジェクト名>/en/v1/') }})
 ```
 
 ## プロジェクトの開発
