@@ -1,0 +1,31 @@
+import{c as l,o as i,ag as r,j as s,t as a,k as p,g as e}from"./chunks/framework.C8hRoDJf.js";const u=JSON.parse('{"title":"ガイド","description":"","frontmatter":{},"headers":[],"relativePath":"guide/index.md","filePath":"guide/index.md","lastUpdated":1746756537000}'),c={name:"guide/index.md"},m=Object.assign(c,{setup(t){return(b,n)=>(i(),l("div",null,[n[0]||(n[0]=r(`<h1 id="ガイド" tabindex="-1">ガイド <a class="header-anchor" href="#ガイド" aria-label="Permalink to &quot;ガイド&quot;">​</a></h1><h2 id="概要" tabindex="-1">概要 <a class="header-anchor" href="#概要" aria-label="Permalink to &quot;概要&quot;">​</a></h2><p>このドキュメントサイトは、複数のVitePressプロジェクトをモノレポ構造で管理するためのプラットフォームです。pnpm workspacesを使用して、効率的にプロジェクトを管理しています。</p><h2 id="特徴" tabindex="-1">特徴 <a class="header-anchor" href="#特徴" aria-label="Permalink to &quot;特徴&quot;">​</a></h2><ul><li><strong>モノレポ構造</strong>: 一つのリポジトリで複数のプロジェクトを管理</li><li><strong>共通コンポーネント</strong>: すべてのプロジェクトで再利用可能なコンポーネント</li><li><strong>多言語対応</strong>: 日本語と英語のドキュメントを簡単に管理</li><li><strong>バージョン管理</strong>: ドキュメントの各バージョンを簡単に切り替え</li><li><strong>横断的な検索</strong>: すべてのプロジェクトを対象とした検索機能</li></ul><h2 id="ディレクトリ構造" tabindex="-1">ディレクトリ構造 <a class="header-anchor" href="#ディレクトリ構造" aria-label="Permalink to &quot;ディレクトリ構造&quot;">​</a></h2><div class="language- vp-adaptive-theme line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>docs/</span></span>
+<span class="line"><span>├── package.json</span></span>
+<span class="line"><span>├── pnpm-workspace.yaml</span></span>
+<span class="line"><span>├── .github/</span></span>
+<span class="line"><span>│   └── workflows/</span></span>
+<span class="line"><span>│       └── deploy.yml</span></span>
+<span class="line"><span>├── packages/</span></span>
+<span class="line"><span>│   ├── shared/</span></span>
+<span class="line"><span>│   │   ├── theme/</span></span>
+<span class="line"><span>│   │   ├── components/</span></span>
+<span class="line"><span>│   │   └── utils/</span></span>
+<span class="line"><span>│   ├── project1/</span></span>
+<span class="line"><span>│   │   ├── package.json</span></span>
+<span class="line"><span>│   │   ├── .vitepress/</span></span>
+<span class="line"><span>│   │   │   ├── config.js</span></span>
+<span class="line"><span>│   │   │   └── theme/</span></span>
+<span class="line"><span>│   │   ├── en/</span></span>
+<span class="line"><span>│   │   │   ├── v1/</span></span>
+<span class="line"><span>│   │   │   └── v2/</span></span>
+<span class="line"><span>│   │   └── ja/</span></span>
+<span class="line"><span>│   │       ├── v1/</span></span>
+<span class="line"><span>│   │       └── v2/</span></span>
+<span class="line"><span>│   ├── project2/</span></span>
+<span class="line"><span>│   │   └── ...</span></span>
+<span class="line"><span>│   └── ...</span></span>
+<span class="line"><span>└── apps/</span></span>
+<span class="line"><span>    └── main-site/</span></span>
+<span class="line"><span>        ├── package.json</span></span>
+<span class="line"><span>        ├── .vitepress/</span></span>
+<span class="line"><span>        │   └── config.js</span></span>
+<span class="line"><span>        └── index.md</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><h2 id="次のステップ" tabindex="-1">次のステップ <a class="header-anchor" href="#次のステップ" aria-label="Permalink to &quot;次のステップ&quot;">​</a></h2>`,8)),s("ul",null,[s("li",null,"[使い方]("+a(p(e)("/guide/usage"))+")を確認して、基本的な操作方法を学びましょう。",1),s("li",null,"[プロジェクトの追加]("+a(p(e)("/guide/add-project"))+")方法を確認して、新しいプロジェクトを追加してみましょう。",1)])]))}});export{u as __pageData,m as default};
