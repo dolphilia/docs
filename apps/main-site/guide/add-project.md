@@ -124,8 +124,8 @@ sidebar: {
 
 ## ドキュメント
 
-- [日本語ドキュメント]({{ withBase('/<プロジェクト名>/ja/v1/') }})
-- [English Documentation]({{ withBase('/<プロジェクト名>/en/v1/') }})
+- <a :href="withBase('/<プロジェクト名>/ja/v1/')">日本語ドキュメント</a>
+- <a :href="withBase('/<プロジェクト名>/en/v1/')">English Documentation</a>
 ```
 
 ## プロジェクトの開発

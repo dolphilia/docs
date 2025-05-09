@@ -54,5 +54,5 @@ docs/
 
 ## 次のステップ
 
-- [使い方]({{ withBase('/guide/usage') }})を確認して、基本的な操作方法を学びましょう。
-- [プロジェクトの追加]({{ withBase('/guide/add-project') }})方法を確認して、新しいプロジェクトを追加してみましょう。
+- <a :href="withBase('/guide/usage')">使い方</a>を確認して、基本的な操作方法を学びましょう。
+- <a :href="withBase('/guide/add-project')">プロジェクトの追加</a>方法を確認して、新しいプロジェクトを追加してみましょう。

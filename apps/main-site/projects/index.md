@@ -18,15 +18,15 @@ import { withBase } from 'vitepress'
 
 このプロジェクトは、VitePressモノレポドキュメントサイトのサンプルプロジェクトです。複数のVitePressプロジェクトをモノレポ構造で管理する方法を示すために作成されました。
 
-- [日本語ドキュメント]({{ withBase('/sample-project1/ja/v1/') }})
-- [English Documentation]({{ withBase('/sample-project1/en/v1/') }})
+- <a :href="withBase('/sample-project1/ja/v1/')">日本語ドキュメント</a>
+- <a :href="withBase('/sample-project1/en/v1/')">English Documentation</a>
 
 ### サンプルプロジェクト2
 
 サンプルプロジェクト2の説明文をここに記載します。このプロジェクトは、多言語対応とバージョン管理のサンプルとして作成されました。
 
-- [日本語ドキュメント]({{ withBase('/sample-project2/ja/v1/') }})
-- [English Documentation]({{ withBase('/sample-project2/en/v1/') }})
+- <a :href="withBase('/sample-project2/ja/v1/')">日本語ドキュメント</a>
+- <a :href="withBase('/sample-project2/en/v1/')">English Documentation</a>
 
 ## プロジェクトの管理
 

@@ -49,5 +49,5 @@ import { withBase } from 'vitepress'
 
 ### 使い方
 
-1. [ガイド]({{ withBase('/guide/') }})を参照して、基本的な使い方を学びます。
-2. [プロジェクト一覧]({{ withBase('/projects/') }})から、各プロジェクトのドキュメントにアクセスできます。
+1. <a :href="withBase('/guide/')">ガイド</a>を参照して、基本的な使い方を学びます。
+2. <a :href="withBase('/projects/')">プロジェクト一覧</a>から、各プロジェクトのドキュメントにアクセスできます。
