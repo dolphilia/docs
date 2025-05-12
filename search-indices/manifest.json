@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "sample-docs": {
+      "en": {
+        "v1": "sample-docs-en-v1.json",
+        "v2": "sample-docs-en-v2.json"
+      },
+      "ja": {
+        "v1": "sample-docs-ja-v1.json",
+        "v2": "sample-docs-ja-v2.json"
+      }
+    }
+  }
+}
